@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage.jsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import CheckoutPage from './pages/CheckoutPage.jsx';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <CheckoutPage />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetailPage />,
       },
     ],
   },

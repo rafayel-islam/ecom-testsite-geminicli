@@ -42,7 +42,10 @@ function CartPage() {
             <div className="text-right text-2xl font-bold mt-8">
               Total: ${getTotalPrice().toFixed(2)}
             </div>
-            <div className="flex justify-end mt-4">
+            <div className="flex justify-end mt-4 space-x-4">
+              <Link to="/shop" className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Continue Shopping
+              </Link>
               <Link to="/checkout" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                 Proceed to Checkout
               </Link>
