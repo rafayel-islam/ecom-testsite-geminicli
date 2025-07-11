@@ -6,13 +6,14 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
+      const quantityToAdd = product.quantity || 1; // Default to 1 if quantity is not provided
       const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + product.quantity } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item
         );
       } else {
-        return [...prevItems, { ...product, quantity: product.quantity }];
+        return [...prevItems, { ...product, quantity: quantityToAdd }];
       }
     });
   };
