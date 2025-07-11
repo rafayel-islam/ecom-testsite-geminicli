@@ -51,8 +51,11 @@ function CheckoutPage() {
               ) : (
                 <div className="space-y-4">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex justify-between items-center">
-                      <p>{item.name} x {item.quantity}</p>
+                    <div key={item.id} className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
+                        <p>{item.name} x {item.quantity}</p>
+                      </div>
                       <p>${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   ))}
