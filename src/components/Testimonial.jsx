@@ -122,9 +122,9 @@ function Testimonial() {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       if (i < rating) {
-        stars.push(<i key={i} className="fas fa-star text-yellow-400"></i>);
+        stars.push(<i key={i} className="text-yellow-400 fas fa-star"></i>);
       } else {
-        stars.push(<i key={i} className="far fa-star text-gray-400"></i>); // Outline star
+        stars.push(<i key={i} className="text-gray-400 far fa-star"></i>); // Outline star
       }
     }
     return <div className="flex justify-center mb-2">{stars}</div>;
@@ -133,20 +133,20 @@ function Testimonial() {
   const displayedTestimonials = testimonials.slice(startIndex, startIndex + testimonialsPerPage);
 
   return (
-    <section className="py-16 bg-gray-100">
-      <div className="container mx-auto px-6 text-center relative">
-        <h2 className="text-3xl font-bold text-gray-800 mb-12">What Our Clients Say</h2>
+    <section className="py-16">
+      <div className="container relative px-6 mx-auto text-center">
+        <h2 className="mb-12 text-3xl font-bold text-gray-800">What Our Clients Say</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {displayedTestimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-lg shadow-md p-6">
+            <div key={testimonial.id} className="p-6 bg-white rounded-lg shadow-md">
               <img
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                className="object-cover w-24 h-24 mx-auto mb-4 rounded-full"
                 src={testimonial.image}
                 alt={testimonial.name}
               />
               {renderStars(testimonial.rating)}
-              <p className="text-gray-600 italic mb-4">{testimonial.quote}</p>
+              <p className="mb-4 italic text-gray-600">{testimonial.quote}</p>
               <h3 className="text-xl font-semibold text-gray-800">{testimonial.name}</h3>
               <p className="text-blue-600">{testimonial.title}</p>
             </div>
@@ -157,13 +157,13 @@ function Testimonial() {
         <div className="flex justify-center mt-8 space-x-4">
           <button
             onClick={handlePrev}
-            className="bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 focus:outline-none"
+            className="p-3 text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-600 focus:outline-none"
           >
             <i className="fas fa-chevron-left"></i>
           </button>
           <button
             onClick={handleNext}
-            className="bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 focus:outline-none"
+            className="p-3 text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-600 focus:outline-none"
           >
             <i className="fas fa-chevron-right"></i>
           </button>

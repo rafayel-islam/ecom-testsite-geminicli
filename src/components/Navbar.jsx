@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +12,7 @@ function Navbar() {
   const getButtonLinkClass = ({ isActive }) =>
     `px-4 py-2 mt-2 text-sm font-medium ${isActive ? 'bg-blue-700 text-white' : 'text-white bg-blue-600'} transition-colors duration-300 transform rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 md:mt-0 md:ml-4`;
 
-  const getSignupLinkClass = ({ isActive }) =>
-    `px-4 py-2 mt-2 text-sm font-medium ${isActive ? 'border-blue-700 text-blue-700' : 'text-blue-600 border border-blue-600'} transition-colors duration-300 transform rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-600 focus:text-white md:mt-0 md:ml-4`;
+  
 
   const getCartLinkClass = ({ isActive }) =>
     `relative px-4 py-2 mt-2 text-sm font-medium ${isActive ? 'bg-gray-200 text-gray-900' : 'text-gray-700'} transition-colors duration-300 transform rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200 md:mt-0 md:ml-4`;

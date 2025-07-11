@@ -83,7 +83,7 @@ const LoginPage = () => {
 };
 
 // Social Icon Component
-const SocialIcon = ({ Icon }) => (
+const SocialIcon = ({ Icon /* eslint-disable-line no-unused-vars */ }) => (
   <a href="#" className="flex items-center justify-center w-10 h-10 transition-colors border border-gray-300 rounded-full hover:bg-gray-100">
     <Icon className="text-gray-600" />
   </a>
