@@ -1,9 +1,9 @@
 import React from 'react';
 
 function SectionBackground({ children, variant }) {
-  const gradientClasses = variant === 'reversed' ? 'from-blue-50 to-teal-50' : 'from-teal-50 to-blue-50';
-  const circle1Classes = variant === 'reversed' ? 'bg-blue-200 -bottom-20 -right-10' : 'bg-teal-200 -top-10 -left-10';
-  const circle2Classes = variant === 'reversed' ? 'bg-teal-200 -top-10 -left-10' : 'bg-blue-200 -bottom-20 -right-10';
+  const gradientClasses = variant === 'reversed' ? 'from-blue-50 to-purple-50' : 'from-purple-50 to-blue-50';
+  const circle1Classes = variant === 'reversed' ? 'bg-blue-100 -bottom-20 -right-10' : 'bg-purple-100 -top-10 -left-10';
+  const circle2Classes = variant === 'reversed' ? 'bg-purple-100 -top-10 -left-10' : 'bg-blue-100 -bottom-20 -right-10';
 
   return (
     <section className="relative overflow-hidden">

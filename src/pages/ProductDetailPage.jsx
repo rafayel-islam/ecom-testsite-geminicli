@@ -66,15 +66,15 @@ function ProductDetailPage() {
               </button>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
               <button
-                className="flex-1 px-6 py-4 text-xl font-bold text-white transition duration-300 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 hover:scale-105"
+                className="w-full px-6 py-4 text-xl font-bold text-white transition duration-300 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 hover:scale-105"
                 onClick={handleAddToCart}
               >
                 Add to Cart
               </button>
               <button
-                className="flex-1 px-6 py-4 text-xl font-bold text-blue-600 transition duration-300 ease-in-out transform bg-transparent border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white hover:scale-105"
+                className="w-full px-6 py-4 text-xl font-bold text-blue-600 transition duration-300 ease-in-out transform bg-transparent border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white hover:scale-105"
                 onClick={handleBuyNow}
               >
                 Buy Now

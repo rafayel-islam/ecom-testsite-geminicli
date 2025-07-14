@@ -3,13 +3,46 @@ import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/
 
 const LoginPage = () => {
   const [isActive, setIsActive] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('http://localhost:3001/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      alert(data.message);
+    } catch (error) {
+      alert('Error registering');
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      alert(data.message);
+    } catch (error) {
+      alert('Error logging in');
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-r from-gray-200 to-blue-100">
       <div className={`container relative w-full max-w-3xl min-h-[480px] bg-white rounded-3xl shadow-xl overflow-hidden ${isActive ? 'active' : ''}`}>
         {/* Sign Up Form */}
         <div className={`absolute top-0 h-full w-1/2 transition-all duration-700 ease-in-out ${isActive ? 'translate-x-full opacity-100 z-20' : 'opacity-0 z-10'}`}>
-          <form className="flex flex-col items-center justify-center h-full px-10 bg-white">
+          <form onSubmit={handleRegister} className="flex flex-col items-center justify-center h-full px-10 bg-white">
             <h1 className="mb-4 text-2xl font-bold">Create Account</h1>
             <div className="flex mb-6 space-x-2">
               <SocialIcon Icon={FaGooglePlusG} />
@@ -18,16 +51,16 @@ const LoginPage = () => {
               <SocialIcon Icon={FaLinkedinIn} />
             </div>
             <span className="mb-4 text-sm">or use your email for registration</span>
-            <input type="text" placeholder="Enter your full name" className="input-field" />
-            <input type="email" placeholder="Enter your email" className="input-field" />
-            <input type="password" placeholder="Create a password" className="input-field" />
-            <button className="w-full btn-primary">Sign Up</button>
+            <input type="text" placeholder="Enter your full name" value={name} onChange={(e) => setName(e.target.value)} className="input-field" />
+            <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-field" />
+            <input type="password" placeholder="Create a password" value={password} onChange={(e) => setPassword(e.target.value)} className="input-field" />
+            <button type="submit" className="w-full btn-primary">Sign Up</button>
           </form>
         </div>
 
         {/* Sign In Form */}
         <div className={`absolute top-0 left-0 h-full w-1/2 transition-all duration-700 ease-in-out ${isActive ? 'translate-x-full z-10' : 'z-10'}`}>
-          <form className="flex flex-col items-center justify-center h-full px-10 bg-white">
+          <form onSubmit={handleLogin} className="flex flex-col items-center justify-center h-full px-10 bg-white">
             <h1 className="mb-3 text-2xl font-bold">Sign In</h1>
             <div className="flex mb-6 space-x-2">
               <SocialIcon Icon={FaGooglePlusG} />
@@ -36,8 +69,8 @@ const LoginPage = () => {
               <SocialIcon Icon={FaLinkedinIn} />
             </div>
             <span className="mb-3 text-sm">or use your email password</span>
-            <input type="email" placeholder="Enter your email" className="input-field" />
-            <input type="password" placeholder="Enter your password" className=" input-field" />
+            <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-field" />
+            <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className=" input-field" />
             <div className="flex items-center justify-between w-full mt-2 mb-2">
               <div>
               <input type="checkbox" id="rememberMe" className="mr-2 size-3" />
@@ -46,7 +79,7 @@ const LoginPage = () => {
               <a href="#" className="items-center text-sm text-gray-600 hover:underline">Forget Your Password?</a>
             </div>
             
-            <button className="w-full btn-primary">Sign In</button>
+            <button type="submit" className="w-full btn-primary">Sign In</button>
           </form>
         </div>
 

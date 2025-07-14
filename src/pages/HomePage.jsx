@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import Partner from '../components/Partner';
 import KeyFeatures from '../components/KeyFeatures';
 import Testimonial from '../components/Testimonial';
 import Newsletter from '../components/Newsletter';
@@ -12,7 +13,11 @@ function HomePage() {
         <Hero />
       </SectionBackground>
 
-      <SectionBackground variant="reversed">
+      <SectionBackground>
+        <Partner />
+      </SectionBackground>
+
+      <SectionBackground>
         <KeyFeatures />
       </SectionBackground>
 
